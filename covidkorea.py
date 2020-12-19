@@ -30,7 +30,3 @@ class covid_korea:
         print("Jeollanam-do: " + str(cases[13].text))
         print("Gwangju: " + str(cases[4].text))
         print("Jeju: " + str(cases[16].text))
-
-
-c = covid_korea()
-c.total_cases()
