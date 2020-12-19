@@ -7,6 +7,8 @@ class covid_korea:
         pass
 
     def total_cases(self):
+        print("total_cases")
+        
         website = "http://ncov.mohw.go.kr/en/bdBoardList.do?brdId=16&brdGubun=162&dataGubun=&ncvContSeq=&contSeq=&board_id= "
         result = requests.get(website)
         soup = bs4.BeautifulSoup(result.text, "lxml")
@@ -30,3 +32,30 @@ class covid_korea:
         print("Jeollanam-do: " + str(cases[13].text))
         print("Gwangju: " + str(cases[4].text))
         print("Jeju: " + str(cases[16].text))
+        
+    def new_daily_cases(self):
+        print("new_daily_cases")
+
+        website = "http://ncov.mohw.go.kr/en/bdBoardList.do?brdId=16&brdGubun=162&dataGubun=&ncvContSeq=&contSeq=&board_id= "
+        result = requests.get(website)
+        soup = bs4.BeautifulSoup(result.text, "lxml")
+        cases = soup.select('.number')
+
+        print("Total: " + str(cases[0].text))
+        print("Seoul: " + str(cases[8].text))
+        print("Gyeonggi-do: " + str(cases[72].text))
+        print("Incheon: " + str(cases[32].text))
+        print("Sejong: " + str(cases[64].text))
+        print("Gangwon-do: " + str(cases[80].text))
+        print("Chungcheongbuk-do: " + str(cases[88].text))
+        print("Chungcheongnam-do: " + str(cases[2].text))
+        print("Daejeon: " + str(cases[48].text))
+        print("Gyeongsangbuk-do: " + str(cases[120].text))
+        print("Gyeongsangnam-do: " + str(cases[128].text))
+        print("Busan: " + str(cases[16].text))
+        print("Ulsan: " + str(cases[56].text))
+        print("Daegu: " + str(cases[24].text))
+        print("Jeollabuk-do: " + str(cases[104].text))
+        print("Jeollanam-do: " + str(cases[112].text))
+        print("Gwangju: " + str(cases[40].text))
+        print("Jeju: " + str(cases[96].text))
