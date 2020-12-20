@@ -76,4 +76,4 @@ class covid_korea:
         for i in cases[0]:
             if a == 7:
                 print(i.text)
-         a += 1
+            a += 1
