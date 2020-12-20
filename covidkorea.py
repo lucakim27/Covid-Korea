@@ -59,3 +59,21 @@ class covid_korea:
         print("Jeollanam-do: " + str(cases[112].text))
         print("Gwangju: " + str(cases[40].text))
         print("Jeju: " + str(cases[96].text))
+        
+    def gwangju_travel_path(self):
+        print("gwangju_travel_path")
+
+        website = "https://www.gwangju.go.kr/c19/guRoutePrvntList.do"
+        result = requests.get(website)
+        soup = bs4.BeautifulSoup(result.text, "lxml")
+        cases = soup.select(".tb_default")
+   
+        def remove(string):
+            return "".join(string.split())
+   
+        a=0
+   
+        for i in cases[0]:
+            if a == 7:
+                print(i.text)
+         a += 1
