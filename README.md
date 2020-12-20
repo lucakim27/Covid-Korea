@@ -1,6 +1,11 @@
 # Covid-Korea
 Web Scraping from "https://www.gwangju.go.kr/c19/"
 
+Package install python
+1) pip install requests
+2) pip install beautifulsoup4
+3) pip install bs4
+
 Output Example Dec/20/2020
 
 total_cases
