@@ -77,3 +77,27 @@ class covid_korea:
             if a == 7:
                 print(i.text)
             a += 1
+
+            
+    def gwangju_prevention_area(self):
+           print("gwangju_prevention_area")
+   
+           website = "https://www.gwangju.go.kr/c19/routPrevention.
+           result = requests.get(website)
+           soup = bs4.BeautifulSoup(result.text, "lxml")
+           cases = soup.select(".tb_default")
+ 
+           a=0
+   
+           today = date.today()
+           d = today.strftime("%m-%d")
+ 
+           def remove(string):
+               return "".join(string.split())
+   
+           for i in cases[0]:
+               if a == 7:
+
+                   print(i.text)
+   
+               a += 1
