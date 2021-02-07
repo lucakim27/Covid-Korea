@@ -1,103 +1,37 @@
 import requests
 import bs4
 
-
 class covid_korea:
     def __init__(self):
-        pass
-
-    def total_cases(self):
-        print("total_cases")
         
-        website = "http://ncov.mohw.go.kr/en/bdBoardList.do?brdId=16&brdGubun=162&dataGubun=&ncvContSeq=&contSeq=&board_id= "
-        result = requests.get(website)
-        soup = bs4.BeautifulSoup(result.text, "lxml")
-        cases = soup.select('.num')
+        website1 = "http://ncov.mohw.go.kr/en/bdBoardList.do?brdId=16&brdGubun=162&dataGubun=&ncvContSeq=&contSeq=&board_id= "
+        result1 = requests.get(website1)
+        soup1 = bs4.BeautifulSoup(result1.text, "lxml")
+        cases1 = soup1.select('.num')
 
-        print("Total: " + str(cases[18].text))
-        print("Seoul: " + str(cases[0].text))
-        print("Gyeonggi-do: " + str(cases[8].text))
-        print("Incheon: " + str(cases[3].text))
-        print("Sejong: " + str(cases[7].text))
-        print("Gangwon-do: " + str(cases[9].text))
-        print("Chungcheongbuk-do: " + str(cases[10].text))
-        print("Chungcheongnam-do: " + str(cases[11].text))
-        print("Daejeon: " + str(cases[5].text))
-        print("Gyeongsangbuk-do: " + str(cases[14].text))
-        print("Gyeongsangnam-do: " + str(cases[15].text))
-        print("Busan: " + str(cases[1].text))
-        print("Ulsan: " + str(cases[6].text))
-        print("Daegu: " + str(cases[2].text))
-        print("Jeollabuk-do: " + str(cases[12].text))
-        print("Jeollanam-do: " + str(cases[13].text))
-        print("Gwangju: " + str(cases[4].text))
-        print("Jeju: " + str(cases[16].text))
-        
-    def new_daily_cases(self):
-        print("new_daily_cases")
+        website2 = "http://ncov.mohw.go.kr/en/bdBoardList.do?brdId=16&brdGubun=162&dataGubun=&ncvContSeq=&contSeq=&board_id= "
+        result2 = requests.get(website2)
+        soup2 = bs4.BeautifulSoup(result2.text, "lxml")
+        cases2 = soup2.select('.number')
 
-        website = "http://ncov.mohw.go.kr/en/bdBoardList.do?brdId=16&brdGubun=162&dataGubun=&ncvContSeq=&contSeq=&board_id= "
-        result = requests.get(website)
-        soup = bs4.BeautifulSoup(result.text, "lxml")
-        cases = soup.select('.number')
+        print("Left: Total, Right: Daily")
+        print("Source: http://ncov.mohw.go.kr/en")
 
-        print("Total: " + str(cases[0].text))
-        print("Seoul: " + str(cases[8].text))
-        print("Gyeonggi-do: " + str(cases[72].text))
-        print("Incheon: " + str(cases[32].text))
-        print("Sejong: " + str(cases[64].text))
-        print("Gangwon-do: " + str(cases[80].text))
-        print("Chungcheongbuk-do: " + str(cases[88].text))
-        print("Chungcheongnam-do: " + str(cases[2].text))
-        print("Daejeon: " + str(cases[48].text))
-        print("Gyeongsangbuk-do: " + str(cases[120].text))
-        print("Gyeongsangnam-do: " + str(cases[128].text))
-        print("Busan: " + str(cases[16].text))
-        print("Ulsan: " + str(cases[56].text))
-        print("Daegu: " + str(cases[24].text))
-        print("Jeollabuk-do: " + str(cases[104].text))
-        print("Jeollanam-do: " + str(cases[112].text))
-        print("Gwangju: " + str(cases[40].text))
-        print("Jeju: " + str(cases[96].text))
-        
-    def gwangju_travel_path(self):
-        print("gwangju_travel_path")
-
-        website = "https://www.gwangju.go.kr/c19/guRoutePrvntList.do"
-        result = requests.get(website)
-        soup = bs4.BeautifulSoup(result.text, "lxml")
-        cases = soup.select(".tb_default")
-   
-        def remove(string):
-            return "".join(string.split())
-   
-        a=0
-   
-        for i in cases[0]:
-            if a == 7:
-                print(i.text)
-            a += 1
-
-            
-    def gwangju_prevention_area(self):
-           print("gwangju_prevention_area")
-   
-           website = "https://www.gwangju.go.kr/c19/routPrevention.
-           result = requests.get(website)
-           soup = bs4.BeautifulSoup(result.text, "lxml")
-           cases = soup.select(".tb_default")
- 
-           a=0
-   
-           today = date.today()
-           d = today.strftime("%m-%d")
- 
-           def remove(string):
-               return "".join(string.split())
-   
-           for i in cases[0]:
-               if a == 7:
-
-                   print(i.text)
-   
-               a += 1
+        print("Total: " + str(cases1[18].text) + "(" + str(cases2[0].text) + ")")
+        print("Seoul: " + str(cases1[0].text) + " (" + str(cases2[8].text) + ")")
+        print("Gyeonggi-do: " + str(cases1[8].text) + " (" + str(cases2[72].text) + ")")
+        print("Incheon: " + str(cases1[3].text) + " (" + str(cases2[32].text) + ")")
+        print("Sejong: " + str(cases1[7].text) + " (" + str(cases2[64].text) + ")")
+        print("Gangwon-do: " + str(cases1[9].text) + " (" + str(cases2[80].text) + ")")
+        print("Chungcheongbuk-do: " + str(cases1[10].text) + " (" + str(cases2[88].text) + ")")
+        print("Chungcheongnam-do: " + str(cases1[11].text) + " (" + str(cases2[2].text) + ")")
+        print("Daejeon: " + str(cases1[5].text) + " (" + str(cases2[48].text) + ")")
+        print("Gyeongsangbuk-do: " + str(cases1[14].text) + " (" + str(cases2[120].text) + ")")
+        print("Gyeongsangnam-do: " + str(cases1[15].text) + " (" + str(cases2[128].text) + ")")
+        print("Busan: " + str(cases1[1].text) + " (" + str(cases2[16].text) + ")")
+        print("Ulsan: " + str(cases1[6].text) + " (" + str(cases2[56].text) + ")")
+        print("Daegu: " + str(cases1[2].text) + " (" + str(cases2[24].text) + ")")
+        print("Jeollabuk-do: " + str(cases1[12].text) + " (" + str(cases2[104].text) + ")")
+        print("Jeollanam-do: " + str(cases1[13].text) + " (" + str(cases2[112].text) + ")")
+        print("Gwangju: " + str(cases1[4].text) + " (" + str(cases2[40].text) + ")")
+        print("Jeju: " + str(cases1[16].text) + " (" + str(cases2[96].text) + ")")
