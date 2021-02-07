@@ -4,15 +4,11 @@ import bs4
 class covid_korea:
     def __init__(self):
         
-        website1 = "http://ncov.mohw.go.kr/en/bdBoardList.do?brdId=16&brdGubun=162&dataGubun=&ncvContSeq=&contSeq=&board_id= "
-        result1 = requests.get(website1)
-        soup1 = bs4.BeautifulSoup(result1.text, "lxml")
-        cases1 = soup1.select('.num')
-
-        website2 = "http://ncov.mohw.go.kr/en/bdBoardList.do?brdId=16&brdGubun=162&dataGubun=&ncvContSeq=&contSeq=&board_id= "
-        result2 = requests.get(website2)
-        soup2 = bs4.BeautifulSoup(result2.text, "lxml")
-        cases2 = soup2.select('.number')
+        website = "http://ncov.mohw.go.kr/en/bdBoardList.do?brdId=16&brdGubun=162&dataGubun=&ncvContSeq=&contSeq=&board_id= "
+        result = requests.get(website)
+        soup = bs4.BeautifulSoup(result.text, "lxml")
+        cases1 = soup.select('.num')
+        cases2 = soup.select('.number')
 
         print("Left: Total, Right: Daily")
         print("Source: http://ncov.mohw.go.kr/en")
